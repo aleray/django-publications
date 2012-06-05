@@ -6,7 +6,7 @@ from django.db import models
 from django.utils.http import urlquote_plus
 from string import split, strip, join, replace, ascii_uppercase
 from publications.fields import PagesField
-from publications.models import Type
+from publications.models import Type, License
 
 class Publication(models.Model):
 	class Meta:
@@ -46,6 +46,7 @@ class Publication(models.Model):
 		}
 
 	type = models.ForeignKey(Type)
+	license = models.ForeignKey(License, blank=True, null=True)
 	title = models.CharField(max_length=512)
 	authors = models.CharField(max_length=2048,
 		help_text='List of authors separated by commas or <i>and</i>.')

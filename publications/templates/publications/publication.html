@@ -11,6 +11,7 @@
 	{% if publication.publisher %}{{ publication.publisher }},{% endif %}
 	{{ publication.year }}</i><br/>
 {% endif %}
+{% if publication.license %}<a class="link" rel="license" href="{{ publication.license.url }}">{{ publication.license.type }}</a><br />{% endif %}
 {% if publication.keywords %}
 	{% for keyword, keyword_escaped in publication.keywords_escaped %}
 		<a class="keyword" href="/publications/tag/{{ keyword_escaped }}/">{{ keyword }}</a>

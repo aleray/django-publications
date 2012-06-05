@@ -11,6 +11,8 @@
   month = "{{ publication.month_bibtex }}"{% endif %}{% if publication.keywords %},
   keywords = "{{ publication.keywords }}"{% endif %}{% if publication.doi %},
   doi = "{{ publication.doi }}"{% endif %}{% if publication.url %},
-  url = "{{ publication.url }}"{% endif %}{% if publication.note %},
+  url = "{{ publication.url }}"{% endif %}{% if publication.license %},
+  licence_type = "{{ publication.license.type }}",
+  licence_url = "{{ publication.license.url }}"{% endif %}{% if publication.note %},
   note = "{{ publication.note }}"{% endif %}
 }
