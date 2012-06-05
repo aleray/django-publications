@@ -6,7 +6,7 @@ from publications import __version__
 
 
 setup(
-    name='Django Publications',
+    name='django-publications',
     version=__version__,
     author='Lucas Theis',
     author_email='lucas@theis.io',
