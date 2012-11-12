@@ -47,6 +47,8 @@ class Publication(models.Model):
 
 	type = models.ForeignKey(Type)
 	license = models.ForeignKey(License, blank=True, null=True)
+	citekey = models.CharField(max_length=512, blank=True, null=True,
+		help_text='BibTex citation key. Leave blank if unsure.')
 	title = models.CharField(max_length=512)
 	authors = models.CharField(max_length=2048,
 		help_text='List of authors separated by commas or <i>and</i>.')
@@ -144,6 +146,7 @@ class Publication(models.Model):
 			self.authors = self.authors_list[0]
 
 
+
 	def __unicode__(self):
 		if len(self.title) < 64:
 			return self.title
@@ -207,3 +210,8 @@ class Publication(models.Model):
 			return self.journal
 		else:
 			return self.book_title
+
+
+	def clean(self):
+		if not self.citekey:
+			self.citekey = self.key()
