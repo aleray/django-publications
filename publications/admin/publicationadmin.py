@@ -13,9 +13,9 @@ class PublicationAdmin(admin.ModelAdmin):
 		(None, {'fields': 
 			('type', 'title', 'authors', 'year', 'month')}),
 		(None, {'fields': 
-			('journal', 'book_title', 'publisher', 'volume', 'number', 'pages')}),
+			('journal', 'book_title', 'publisher', 'editors', 'volume', 'number', 'pages')}),
 		(None, {'fields': 
-			('citekey', 'keywords', 'url', 'code', 'pdf', 'doi', 'note', 'external', 'license')}),
+			('citekey', 'keywords', 'language', 'url', 'code', 'pdf', 'doi', 'note', 'external', 'license')}),
 		(None, {'fields':
 			('abstract',)}),
 	)

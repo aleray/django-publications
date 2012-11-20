@@ -59,3 +59,7 @@ class PagesField(models.Field):
 
 	def get_internal_type(self):
 		return 'CharField'
+
+
+from south.modelsinspector import add_introspection_rules
+add_introspection_rules([], ["^publications\.fields\.PagesField"])

@@ -47,31 +47,43 @@ class Publication(models.Model):
 
 	type = models.ForeignKey(Type)
 	license = models.ForeignKey(License, blank=True, null=True)
+	# non existing
 	citekey = models.CharField(max_length=512, blank=True, null=True,
 		help_text='BibTex citation key. Leave blank if unsure.')
 	title = models.CharField(max_length=512)
+	# rename author
 	authors = models.CharField(max_length=2048,
 		help_text='List of authors separated by commas or <i>and</i>.')
 	year = models.PositiveIntegerField(max_length=4)
 	month = models.IntegerField(choices=MONTH_CHOICES, blank=True, null=True)
 	journal = models.CharField(max_length=256, blank=True)
+	# rename booktitle
 	book_title = models.CharField(max_length=256, blank=True)
 	publisher = models.CharField(max_length=256, blank=True)
 	volume = models.IntegerField(blank=True, null=True)
 	number = models.IntegerField(blank=True, null=True, verbose_name='Issue number')
 	pages = PagesField(max_length=32, blank=True)
 	note = models.CharField(max_length=256, blank=True)
+	# non existing
 	keywords = models.CharField(max_length=256, blank=True,
 		help_text='List of keywords separated by commas.')
 	url = models.URLField(blank=True, verify_exists=False, verbose_name='URL',
 		help_text='Link to PDF or journal page.')
+	# non existing
 	code = models.URLField(blank=True, verify_exists=False,
 		help_text='Link to page with code.')
+	# non existing
 	pdf = models.FileField(upload_to='publications/', verbose_name='PDF', blank=True, null=True)
+	# non existing
 	doi = models.CharField(max_length=128, verbose_name='DOI', blank=True)
+	# non existing
 	external = models.BooleanField(
 		help_text='If publication was written in another lab, mark as external.')
 	abstract = models.TextField(blank=True)
+
+	editors = models.CharField(max_length=2048, blank=True, help_text="")
+	language = models.CharField(max_length=256, blank=True)
+
 
 	def __init__(self, *args, **kwargs):
 		models.Model.__init__(self, *args, **kwargs)
